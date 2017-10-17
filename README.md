@@ -18,4 +18,5 @@ void setup() {
   // e.g. AT+BAUD0 for 9600 bauds
   mySerial.begin(9600);
 }
-
+void loop() {  
+  int c;

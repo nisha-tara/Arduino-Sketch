@@ -18,5 +18,24 @@ void setup() {
   // e.g. AT+BAUD0 for 9600 bauds
   mySerial.begin(9600);
 }
+
 void loop() {  
   int c;
+  
+  if (mySerial.available()) {
+    c = mySerial.read();  
+    Serial.println("Got input:");
+    if (c != 0)
+    {
+      // Non-zero input means "turn on LED".
+      Serial.println("  on");
+      digitalWrite(LED_PIN, HIGH);
+    }
+    else
+    {
+      // Input value zero means "turn off LED".
+      Serial.println("  off");
+      digitalWrite(LED_PIN, LOW);
+    }  
+  }
+}
